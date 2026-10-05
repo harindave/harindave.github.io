@@ -1,30 +1,49 @@
-# Harin Dave — QA + Data Analytics site (Phase 1)
+# Harin Dave — QA + Data Analytics
 
-Public website for the "Quality. Data. Insights." brand: services, INR pricing, packages, projects, resume and a Start a Project form. Plain HTML, CSS and JavaScript, no build step.
+Personal portfolio and professional services website for Harin Dave, focused on
+software quality assurance, data analytics, and data-driven decision making.
 
-## Files
-- `content.js` — **all site content and prices** (the Phase 1 CMS). Change text, prices, services, projects, section order here.
-- `assets/app.js`, `assets/style.css`, `index.html` — the site itself.
-- `resumes/Harin_Dave_QA_Data_Analytics_Resume.pdf` — the public resume.
-- `.github/workflows/pages.yml` — publishes the site on every push to `main`.
+🌐 **Website:** https://harindave.github.io
 
-## Publish for free (GitHub Pages)
-1. Create a public repo named `harindave.github.io` and push this folder to `main`.
-2. Repo **Settings → Pages → Source: GitHub Actions**.
-3. After the "Deploy site" action finishes, the site is live at `https://harindave.github.io`.
+## About
 
-## Edit without touching code (only you)
-Open your live site with `?edit` on the end once. That browser then shows **Edit page**. Click any text to change it; use the orange bar above each section to move or hide it. Edits are a private draft (the page itself is your preview). To **publish**, click **Download content.js**, replace the file in the repo and push. Visitors never see edit controls. `?lock` turns editing off.
+The website presents QA and data analytics services, project examples,
+pricing packages, professional experience, resume, and a project inquiry form.
 
-## Receive form submissions
-Until you add an endpoint, the forms open the visitor's email app with the details filled in. For direct delivery, create a free form at formspree.io or web3forms.com and paste its URL into `form.endpoint` in `content.js`.
+## Services
 
-## Placeholders to fill
-- Photo: edit mode → Change photo.
-- Microsoft certificate status (`certs` in `content.js`; hidden until a status is set).
-- GitHub links on each project as repos go live.
-- Privacy, Terms and Refund text in the footer.
-- Testimonials: only add real, approved ones.
+- Software QA and testing
+- API testing
+- SQL and data validation
+- Data quality testing
+- Excel data analysis
+- Python-based data analysis
+- QA and analytics consulting
 
-## Not in Phase 1 (planned later)
-Client accounts and portal, invoices and Razorpay payments, admin dashboards, analytics, server-side CMS. These need a backend (e.g. Supabase) and cannot run on GitHub Pages alone.
+## Technology
+
+This website is intentionally lightweight and uses:
+
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- GitHub Pages
+- GitHub Actions
+
+There is no build step or frontend framework.
+
+## Project Structure
+
+```text
+.
+├── index.html
+├── content.js
+├── assets/
+│   ├── app.js
+│   └── style.css
+├── resumes/
+│   └── Harin_Dave_QA_Data_Analytics_Resume.pdf
+├── .github/
+│   └── workflows/
+│       └── pages.yml
+└── .nojekyll
