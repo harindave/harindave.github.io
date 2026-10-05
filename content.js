@@ -1,8 +1,8 @@
-// All site content lives in this file (Phase 1 CMS). Edit by hand, or use the on-page editor (?edit) and download a copy.
+// All site content lives in this file.
 window.CONTENT = {
   "site": {
     "name": "Harin Dave",
-    "tagline": "Quality. Data. Insights."
+    "tagline": "QA | Data Analytics"
   },
   "nav": [
     {
@@ -36,11 +36,6 @@ window.CONTENT = {
       "v": true
     },
     {
-      "l": "Testimonials",
-      "h": "#testimonials",
-      "v": true
-    },
-    {
       "l": "Resume",
       "h": "#resume",
       "v": true
@@ -65,10 +60,6 @@ window.CONTENT = {
       "v": true
     },
     {
-      "id": "packages",
-      "v": true
-    },
-    {
       "id": "projects",
       "v": true
     },
@@ -81,15 +72,7 @@ window.CONTENT = {
       "v": true
     },
     {
-      "id": "testimonials",
-      "v": true
-    },
-    {
       "id": "resume",
-      "v": true
-    },
-    {
-      "id": "start",
       "v": true
     },
     {
@@ -98,30 +81,34 @@ window.CONTENT = {
     }
   ],
   "hero": {
-    "h": "QA + Data Analytics for Better Software and Better Decisions",
-    "t": "I combine software quality assurance and data analytics to test applications, validate data, uncover insights and help teams make more reliable technology and business decisions.",
+    "h": "QA + Data Analytics Portfolio",
+    "t": "I combine software quality assurance, API and database testing, automation, and data analytics to test applications, validate data, investigate issues, and turn results into useful insights.",
     "badges": [
       "Software QA",
       "API Testing",
       "SQL & Data Validation",
+      "Automation Testing",
+      "Selenium",
+      "Cucumber",
       "Data Analytics",
       "Excel",
-      "Python",
-      "Data Visualization"
+      "Python"
     ],
     "photoNote": "[Add Professional Photo Here]",
-    "avail": "Available for new projects"
+    "avail": "QA | Data Analytics | QA + Data"
   },
   "about": {
     "h": "QA + Data Analytics Professional",
     "p": [
       "I have 3+ years of professional QA experience testing applications, APIs and databases for software teams working in Agile.",
-      "Alongside testing I work with data: SQL validation, Excel and Python/Pandas analysis, data cleaning and reporting. That combination lets me check not only that software works, but that the data behind it is right, and turn results into clear, actionable insights."
+      "Alongside testing I work with data: SQL validation, Excel and Python/Pandas analysis, data cleaning and reporting. I also have hands-on exposure to automation using Selenium, Cucumber, an existing Page Object Model framework and Jenkins, with AI assistance while I continue strengthening my automation skills."
     ],
     "points": [
       "3+ years of professional QA experience",
-      "Software and API testing",
+      "Software, API and database testing",
       "SQL and database validation",
+      "Manual, regression and exploratory testing",
+      "Automation testing with Selenium and Cucumber",
       "Data validation and data-focused QA",
       "Analytical problem solving",
       "Practical data analytics projects"
@@ -132,7 +119,7 @@ window.CONTENT = {
       "id": "qa",
       "cat": "QA",
       "title": "QA & Software Testing",
-      "d": "Find defects before your users do.",
+      "d": "Hands-on software testing across functional, regression, API, database and automation workflows.",
       "items": [
         "Manual Testing",
         "Functional Testing",
@@ -148,50 +135,21 @@ window.CONTENT = {
         "Regression Verification",
         "Release Testing",
         "QA Documentation",
-        "Data Validation"
+        "Data Validation",
+        "Automation Testing",
+        "Selenium",
+        "Cucumber",
+        "Page Object Model",
+        "Jenkins",
+        "Git/GitHub"
       ],
-      "prices": [
-        {
-          "n": "Test Case Creation",
-          "p": "₹999"
-        },
-        {
-          "n": "Manual Functional Testing",
-          "p": "₹1,499"
-        },
-        {
-          "n": "Regression Testing",
-          "p": "₹1,999"
-        },
-        {
-          "n": "API Testing / Postman",
-          "p": "₹1,499"
-        },
-        {
-          "n": "SQL / Database Validation",
-          "p": "₹1,499"
-        },
-        {
-          "n": "Defect Analysis & Reporting",
-          "p": "₹999"
-        },
-        {
-          "n": "QA Test Summary Report",
-          "p": "₹1,499"
-        },
-        {
-          "n": "Small QA Audit",
-          "p": "₹2,999"
-        }
-      ],
-      "cta": "Request QA Service",
       "v": true
     },
     {
       "id": "data",
       "cat": "Data Analytics",
       "title": "Data Analytics",
-      "d": "Clean, analyse and explain your data.",
+      "d": "Clean, analyse and explain data using practical analysis, reporting and visualization techniques.",
       "items": [
         "Excel Data Analysis",
         "Data Cleaning",
@@ -206,52 +164,13 @@ window.CONTENT = {
         "Data Quality Analysis",
         "Insight Generation"
       ],
-      "prices": [
-        {
-          "n": "Excel Data Cleaning",
-          "p": "₹999"
-        },
-        {
-          "n": "Excel Data Analysis",
-          "p": "₹1,499"
-        },
-        {
-          "n": "SQL Data Analysis",
-          "p": "₹1,499"
-        },
-        {
-          "n": "Basic EDA",
-          "p": "₹1,999"
-        },
-        {
-          "n": "Python/Pandas Analysis",
-          "p": "₹2,499"
-        },
-        {
-          "n": "Data Visualization",
-          "p": "₹1,999"
-        },
-        {
-          "n": "KPI / Trend Analysis",
-          "p": "₹1,999"
-        },
-        {
-          "n": "Basic Dashboard Analysis",
-          "p": "₹2,999"
-        },
-        {
-          "n": "Data Quality Analysis",
-          "p": "₹1,999"
-        }
-      ],
-      "cta": "Request Data Analytics Service",
       "v": true
     },
     {
       "id": "qadata",
       "cat": "QA + Data",
       "title": "QA + Data",
-      "d": "Where Software Quality Meets Data Analytics.",
+      "d": "Where software quality, data validation and analytics come together.",
       "items": [
         "Data Quality Testing",
         "API/Data Validation",
@@ -263,110 +182,9 @@ window.CONTENT = {
         "Anomaly Investigation",
         "Data-Driven QA Reporting"
       ],
-      "prices": [
-        {
-          "n": "Data Validation",
-          "p": "₹1,499"
-        },
-        {
-          "n": "API + Database Validation",
-          "p": "₹2,499"
-        },
-        {
-          "n": "Data Reconciliation",
-          "p": "₹2,499"
-        },
-        {
-          "n": "QA Metrics Analysis",
-          "p": "₹1,999"
-        },
-        {
-          "n": "Test Result Analytics",
-          "p": "₹1,999"
-        },
-        {
-          "n": "Data Quality Audit",
-          "p": "₹2,999"
-        },
-        {
-          "n": "QA + Data Report",
-          "p": "₹3,999"
-        },
-        {
-          "n": "QA + Data Mini Audit",
-          "p": "₹4,999"
-        }
-      ],
-      "cta": "Request QA + Data Service",
       "v": true
     }
   ],
-  "packages": [
-    {
-      "id": "quick",
-      "n": "Quick Service",
-      "p": "₹499",
-      "u": "starting from",
-      "dur": "Up to about 1 hour",
-      "pay": "100% upfront",
-      "d": "Excel cleanup, a small SQL query, test case creation, an API test collection, data formatting, small QA analysis, data validation, a minor dashboard adjustment, or AI prompt creation/optimization.",
-      "v": true
-    },
-    {
-      "id": "day",
-      "n": "1-Day Service",
-      "p": "₹2,999",
-      "u": "starting from / day",
-      "dur": "Up to 6–8 hours",
-      "pay": "100% upfront",
-      "d": "A focused day of QA or data work on a defined task.",
-      "v": true
-    },
-    {
-      "id": "week",
-      "n": "1-Week Service",
-      "p": "₹9,999",
-      "u": "starting from / week",
-      "dur": "Up to 5 working days",
-      "pay": "50% upfront + 50% on completion",
-      "d": "A small project or audit with a clear deliverable.",
-      "v": true
-    },
-    {
-      "id": "sprint",
-      "n": "1-Sprint Service",
-      "p": "₹19,999",
-      "u": "starting from / sprint",
-      "dur": "Up to 2 weeks (default)",
-      "pay": "50% upfront + 50% on completion",
-      "d": "A larger scoped piece of QA, data or QA + Data work.",
-      "v": true
-    },
-    {
-      "id": "month",
-      "n": "1-Month Contract",
-      "p": "₹39,999",
-      "u": "starting from / month",
-      "dur": "1 month",
-      "pay": "100% monthly upfront",
-      "d": "Ongoing QA or data support for your team.",
-      "v": true
-    },
-    {
-      "id": "six",
-      "n": "6-Month Contract",
-      "p": "₹2,19,999",
-      "u": "starting from / 6 months",
-      "dur": "6 months (about ₹36,667 / month)",
-      "pay": "Monthly recurring payment",
-      "d": "Long-term QA, data or QA + Data partnership.",
-      "v": true
-    }
-  ],
-  "quote": {
-    "h": "Need something bigger or unclear?",
-    "t": "Final pricing depends on scope, complexity, data volume, number of screens/endpoints, turnaround time and deliverables. Every price shown is a starting price."
-  },
   "projects": [
     {
       "n": "E-commerce Data Quality Project",
@@ -382,7 +200,7 @@ window.CONTENT = {
     {
       "n": "Sales Dashboard in Excel",
       "cat": "Data Analytics",
-      "c": "Completed · Course project",
+      "c": "Completed · Certification course project",
       "p": "Management needed one clear view of e-commerce sales across product categories.",
       "a": "Cleaned the data, then built pivot tables and charts with slicers, plus lookup and SUMIFS formulas.",
       "r": "An interactive dashboard that stakeholders can filter by category without analyst help.",
@@ -393,7 +211,7 @@ window.CONTENT = {
     {
       "n": "Employee Performance Mapping",
       "cat": "Data Analytics",
-      "c": "Completed · Course project",
+      "c": "Completed · Certification course project",
       "p": "HR needed reports on employees, performance and project assignments for an appraisal cycle.",
       "a": "Wrote joins, subqueries, views and stored procedures with CASE and aggregate functions.",
       "r": "Reusable queries that answer HR reporting questions directly from the database.",
@@ -407,7 +225,7 @@ window.CONTENT = {
       "c": "Professional work · Client details withheld",
       "p": "A business software product needed 8–9 days for a full regression every release.",
       "a": "Streamlined test design and regression execution, including an AI-assisted workflow where drafts are always reviewed by hand.",
-      "r": "Full regression now takes 5–6 days (about 35% faster), with about 2% client-found defects per release and none critical.",
+      "r": "Full regression now takes 5–6 days (about 35% faster), with about 2% client-found defects per release and no critical issues raised by clients on the tickets I worked on.",
       "tools": "Jira · Zephyr · SQL · Postman",
       "l": "",
       "v": true
@@ -423,9 +241,9 @@ window.CONTENT = {
         "Authored 10,000+ test cases and reported 5,000+ defects in Jira; ran test cycles and execution reports in Zephyr.",
         "Verified calculation-heavy workflows, reports and integrations, including SSO login and data fetched from third-party applications.",
         "Validated data with SQL (joins, subqueries, stored procedures, views) and tested APIs in Postman: status codes, JSON responses and auth tokens.",
-        "Reduced full regression from 8–9 days to 5–6 days (about 35%), with about 2% client-found defects per release and none critical.",
+        "Reduced full regression from 8–9 days to 5–6 days (about 35%), with about 2% client-found defects per release and no critical issues raised by clients on the tickets I worked on.",
         "Smoke/sanity, cross-browser and UAT testing; release sign-off and go-live testing.",
-        "Wrote Selenium scripts and Cucumber feature files, extended an existing page-object framework, ran suites in Jenkins and used Git branches and pull requests.",
+        "Wrote Selenium scripts and Cucumber feature files using an existing Page Object Model framework, ran suites in Jenkins and used Git/GitHub. I can write automation scripts independently with AI assistance, while I continue strengthening my ability to build full automation frameworks.",
         "Built an AI-assisted workflow: ChatGPT drafts test cases from user stories, I review them, execute manually and track in Zephyr.",
         "Work daily with clients, developers and BAs: Agile ceremonies, root-cause analysis, mentoring new joiners and leading testing for releases."
       ]
@@ -460,7 +278,7 @@ window.CONTENT = {
     },
     {
       "n": "Microsoft Certificate",
-      "s": ""
+      "s": "Completed"
     }
   ],
   "skills": [
@@ -478,6 +296,17 @@ window.CONTENT = {
         "Test Case Design",
         "Defect Reporting",
         "Jira"
+      ]
+    },
+    {
+      "g": "Automation",
+      "i": [
+        "Selenium",
+        "Cucumber",
+        "Page Object Model",
+        "Jenkins",
+        "Git/GitHub",
+        "AI-Assisted Test Automation"
       ]
     },
     {
@@ -509,11 +338,10 @@ window.CONTENT = {
       ]
     }
   ],
-  "testimonials": [],
   "resume": {
     "label": "Harin Dave – QA + Data Analytics Resume",
     "file": "resumes/Harin_Dave_QA_Data_Analytics_Resume.pdf",
-    "line": "QA + Data Analytics professional combining software quality, data validation and analytical capabilities."
+    "line": "QA + Data Analytics professional combining software quality, automation exposure, data validation and analytical capabilities."
   },
   "contact": {
     "email": "harindave11@gmail.com",
@@ -525,22 +353,8 @@ window.CONTENT = {
   },
   "form": {
     "endpoint": "",
-    "note": "Add a Formspree or Web3Forms endpoint here to receive submissions directly. Until then the form opens your email app with the details filled in."
+    "note": "Add a Formspree or Web3Forms endpoint here to receive contact messages directly. Until then the form opens your email app with the details filled in."
   },
-  "legal": [
-    {
-      "t": "Privacy Policy",
-      "x": "[Add your privacy policy text here]"
-    },
-    {
-      "t": "Terms of Service",
-      "x": "[Add your terms of service here]"
-    },
-    {
-      "t": "Refund / Cancellation Policy",
-      "x": "[Add your refund and cancellation policy here]"
-    }
-  ],
   "accent": "#0e7c86",
   "photo": ""
 };

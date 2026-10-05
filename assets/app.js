@@ -1,10 +1,9 @@
-/* Harin Dave — QA + Data Analytics site (Phase 1)
- * Everything on the page comes from content.js (the Phase 1 "CMS").
- * Visitors  : read-only.
- * Owner     : open the site once with ?edit. That browser then shows an Edit button.
- *             Edits are a private DRAFT in your browser (preview = the page itself).
- *             "Download content.js" -> replace the file in the repo -> push = PUBLISH.
- *             ?lock removes edit mode and the draft from that browser.
+/* Harin Dave — QA + Data Analytics portfolio
+ * Everything on the page comes from content.js.
+ * Visitors: read-only.
+ * Owner: open the site once with ?edit to use the private browser draft editor.
+ * "Download content.js" -> replace the file in the repo -> push = publish.
+ * ?lock removes edit mode and the draft from that browser.
  */
 (function () {
   'use strict';
@@ -18,62 +17,52 @@
   if (qs.has('edit')) store.set(OWNER, '1');
   if (qs.has('lock')) { store.del(OWNER); store.del(DRAFT); }
   var isOwner = store.get(OWNER) === '1';
-
   var D = JSON.parse(JSON.stringify(window.CONTENT));
   if (isOwner) { try { var s = store.get(DRAFT); if (s) D = JSON.parse(s); } catch (e) {} }
   var edit = false, projFilter = 'All';
-  var CATS = ['QA', 'Data Analytics', 'QA + Data', 'Quick Service', 'Other'];
 
   function $(q) { return document.querySelector(q); }
-  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>\"]/g, function (c) { return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]; }); }
   function e(path, val, cls) { return '<span' + (cls ? ' class="' + cls + '"' : '') + (edit ? ' contenteditable="plaintext-only" data-p="' + path + '"' : '') + '>' + esc(val) + '</span>'; }
   function setPath(path, v) { var a = path.split('.'), o = D; for (var i = 0; i < a.length - 1; i++) o = o[a[i]]; o[a[a.length - 1]] = v; }
   function saveDraft() { if (isOwner) store.set(DRAFT, JSON.stringify(D)); }
   function xb(a, i) { return edit ? '<button class="x" data-a="' + a + '" data-i="' + i + '" title="Remove">✕</button>' : ''; }
   function ab(a, i, label) { return edit ? '<button class="addb" data-a="' + a + '" data-i="' + (i == null ? '' : i) + '">+ ' + label + '</button>' : ''; }
   function vis(list) { return edit ? list : list.filter(function (x) { return x.v !== false; }); }
-  function cta(label, cat, pk) { return '<a class="btn p" href="#start" data-start="' + esc(cat || '') + '" data-pk="' + esc(pk || '') + '">' + esc(label) + '</a>'; }
-
-  // ---------- sections (each returns html; order & visibility come from D.sections) ----------
   var S = {};
+
   S.hero = function () {
     var H = D.hero, ini = D.site.name.split(' ').map(function (w) { return w[0]; }).join('');
     return '<section id="home" class="hero"><div class="w hero-in"><div class="hero-t">' +
       '<div class="tag">' + e('site.tagline', D.site.tagline) + '</div>' +
       '<div class="av">● ' + e('hero.avail', H.avail) + '</div>' +
       '<h1>' + e('hero.h', H.h) + '</h1><p class="lead">' + e('hero.t', H.t) + '</p>' +
-      '<div class="acts">' + cta('Start a Project') + '<a class="btn" href="#projects">View My Work</a><a class="btn" href="#resume">View Resume</a></div>' +
+      '<div class="acts"><a class="btn p" href="#resume">View My Resume</a><a class="btn" href="#projects">View My Projects</a><a class="btn" href="#contact">Connect</a></div>' +
       '<div class="chips">' + H.badges.map(function (b, i) { return '<span class="chip">' + e('hero.badges.' + i, b) + '</span>'; }).join('') + '</div></div>' +
       '<div class="hero-v"><div class="photo">' + (D.photo ? '<img src="' + D.photo + '" alt="' + esc(D.site.name) + '">' : '<div class="ph"><b>' + esc(ini) + '</b><span>' + e('hero.photoNote', H.photoNote) + '</span></div>') + '</div>' +
       (edit ? '<label class="chg">Change photo<input type="file" accept="image/*" id="pf" hidden></label>' : '') +
-      '<svg class="flow" viewBox="0 0 320 70" role="img" aria-label="Quality, data, insights"><g fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="14" width="80" height="42" rx="8"/><rect x="120" y="14" width="80" height="42" rx="8"/><rect x="236" y="14" width="80" height="42" rx="8"/><path d="M84 35h36M200 35h36M112 29l8 6-8 6M228 29l8 6-8 6"/></g><g fill="currentColor" font-size="11" text-anchor="middle" font-family="monospace"><text x="44" y="40">QUALITY</text><text x="160" y="40">DATA</text><text x="276" y="40">INSIGHTS</text></g></svg></div></div></section>';
+      '<svg class="flow" viewBox="0 0 320 70" role="img" aria-label="Quality, data, analytics"><g fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="14" width="80" height="42" rx="8"/><rect x="120" y="14" width="80" height="42" rx="8"/><rect x="236" y="14" width="80" height="42" rx="8"/><path d="M84 35h36M200 35h36M112 29l8 6-8 6M228 29l8 6-8 6"/></g><g fill="currentColor" font-size="11" text-anchor="middle" font-family="monospace"><text x="44" y="40">QUALITY</text><text x="160" y="40">DATA</text><text x="276" y="40">ANALYTICS</text></g></svg></div></div></section>';
   };
+
   S.about = function () {
     var A = D.about;
     return '<section id="about" class="sec"><div class="w"><h2>About</h2><div class="two"><div><h3 class="big">' + e('about.h', A.h) + '</h3>' +
       A.p.map(function (t, i) { return '<p class="mu">' + e('about.p.' + i, t) + '</p>'; }).join('') + '</div><ul class="ticks">' +
       A.points.map(function (t, i) { return '<li>' + e('about.points.' + i, t) + '</li>'; }).join('') + '</ul></div></div></section>';
   };
+
   S.services = function () {
-    return '<section id="services" class="sec alt"><div class="w"><h2>Services</h2><p class="mu sub">Prices are starting prices. Final pricing depends on scope.</p><div class="cols">' +
+    return '<section id="services" class="sec alt"><div class="w"><h2>Services</h2><p class="mu sub">Areas of expertise, tools and capabilities I currently use or am actively developing.</p><div class="cols">' +
       vis(D.services).map(function (v) {
         var i = D.services.indexOf(v);
         return '<article class="c svc"><div class="tg">' + e('services.' + i + '.cat', v.cat) + '</div><h3>' + e('services.' + i + '.title', v.title) + '</h3><p class="mu">' + e('services.' + i + '.d', v.d) + '</p>' +
-          '<div class="chips sm">' + v.items.map(function (t, k) { return '<span class="chip">' + e('services.' + i + '.items.' + k, t) + '</span>'; }).join('') + '</div>' +
-          '<table><caption>Starting from</caption>' + v.prices.map(function (r, k) { return '<tr><td>' + e('services.' + i + '.prices.' + k + '.n', r.n) + '</td><td>' + e('services.' + i + '.prices.' + k + '.p', r.p) + '</td></tr>'; }).join('') + '</table>' + cta(v.cta, v.cat) + '</article>';
+          '<div class="chips sm">' + v.items.map(function (t, k) { return '<span class="chip">' + e('services.' + i + '.items.' + k, t) + '</span>'; }).join('') + '</div></article>';
       }).join('') + '</div></div></section>';
   };
-  S.packages = function () {
-    return '<section id="packages" class="sec"><div class="w"><h2>Packages &amp; pricing</h2><div class="grid">' +
-      vis(D.packages).map(function (p) {
-        var i = D.packages.indexOf(p);
-        return '<article class="c pk"><h3>' + e('packages.' + i + '.n', p.n) + '</h3><div class="price">' + e('packages.' + i + '.p', p.p) + '</div><div class="mu sm">' + e('packages.' + i + '.u', p.u) + '</div>' +
-          '<p class="mu">' + e('packages.' + i + '.d', p.d) + '</p><dl><dt>Duration</dt><dd>' + e('packages.' + i + '.dur', p.dur) + '</dd><dt>Payment</dt><dd>' + e('packages.' + i + '.pay', p.pay) + '</dd></dl>' + cta('Choose ' + p.n, 'Quick Service', p.id) + '</article>';
-      }).join('') + '</div><div class="c quote"><h3>' + e('quote.h', D.quote.h) + '</h3><p class="mu">' + e('quote.t', D.quote.t) + '</p>' + cta('Request Custom Quote') + '</div></div></section>';
-  };
+
   S.projects = function () {
     var cats = ['All', 'QA', 'Data Analytics', 'QA + Data'];
-    return '<section id="projects" class="sec alt"><div class="w"><h2>Projects</h2><div class="seg">' + cats.map(function (c) { return '<button class="' + (c === projFilter ? 'on' : '') + '" data-a="pf" data-i="' + c + '">' + c + '</button>'; }).join('') + '</div>' +
+    return '<section id="projects" class="sec"><div class="w"><h2>Projects</h2><p class="mu sub">A mix of professional case studies and personal/certification projects. Professional examples exclude confidential client details.</p><div class="seg">' + cats.map(function (c) { return '<button class="' + (c === projFilter ? 'on' : '') + '" data-a="pf" data-i="' + c + '">' + c + '</button>'; }).join('') + '</div>' +
       vis(D.projects).filter(function (p) { return projFilter === 'All' || p.cat === projFilter; }).map(function (p) {
         var i = D.projects.indexOf(p);
         return '<article class="c case"><div class="r"><h3>' + e('projects.' + i + '.n', p.n) + '</h3>' + xb('rp', i) + '</div><div class="tg">' + e('projects.' + i + '.cat', p.cat) + ' · ' + e('projects.' + i + '.c', p.c) + '</div><dl>' +
@@ -81,6 +70,7 @@
           (edit ? '<div class="mu sm">GitHub link (no https://): ' + e('projects.' + i + '.l', p.l) + '</div>' : (p.l ? '<a class="ul" href="https://' + esc(p.l) + '" target="_blank" rel="noopener">View project →</a>' : '')) + '</article>';
       }).join('') + ab('ap', '', 'project') + '</div></section>';
   };
+
   S.experience = function () {
     return '<section id="experience" class="sec"><div class="w"><h2>Experience</h2><div class="big-n"><b>3+</b> years of QA experience</div>' + D.experience.map(function (x, j) {
       return '<article class="c"><div class="r"><b>' + e('experience.' + j + '.t', x.t) + ' · ' + e('experience.' + j + '.o', x.o) + '</b><span class="mu">' + e('experience.' + j + '.d', x.d) + '</span></div><ul>' +
@@ -92,48 +82,37 @@
       return '<div class="c r"><span>' + e('certs.' + j + '.n', c.n) + '</span><span class="badge">' + e('certs.' + j + '.s', c.s || (edit ? 'Add status' : '')) + '</span></div>';
     }).join('') + '</div></section>';
   };
+
   S.skills = function () {
     return '<section id="skills" class="sec alt"><div class="w"><h2>Skills</h2><div class="grid">' + D.skills.map(function (g, i) {
       return '<div class="c"><h3>' + e('skills.' + i + '.g', g.g) + '</h3><div class="chips sm">' + g.i.map(function (t, k) { return '<span class="chip">' + e('skills.' + i + '.i.' + k, t) + '</span>'; }).join('') + '</div></div>';
     }).join('') + '</div></div></section>';
   };
-  S.testimonials = function () {
-    if (!D.testimonials.length && !edit) return '';
-    return '<section id="testimonials" class="sec"><div class="w"><h2>Client feedback</h2>' + (D.testimonials.length ? '' : '<p class="empty">No testimonials yet. They appear here once clients approve them.</p>') +
-      D.testimonials.map(function (t, i) { return '<div class="c"><p class="quote-t">“' + e('testimonials.' + i + '.q', t.q) + '”</p><div class="mu">' + e('testimonials.' + i + '.n', t.n) + ' · ' + e('testimonials.' + i + '.r', t.r) + xb('rt', i) + '</div></div>'; }).join('') + ab('at', '', 'testimonial') + '</div></section>';
-  };
+
   S.resume = function () {
-    return '<section id="resume" class="sec alt"><div class="w"><h2>Resume</h2><div class="c"><h3>' + e('resume.label', D.resume.label) + '</h3><p class="mu">' + e('resume.line', D.resume.line) + '</p>' +
-      '<div class="acts"><a class="btn p" href="' + esc(D.resume.file) + '" target="_blank" rel="noopener">View resume (PDF)</a><a class="btn" href="' + esc(D.resume.file) + '" download>Download</a></div></div></div></section>';
+    return '<section id="resume" class="sec"><div class="w"><h2>Resume</h2><div class="c"><h3>' + e('resume.label', D.resume.label) + '</h3><p class="mu">' + e('resume.line', D.resume.line) + '</p>' +
+      '<div class="acts"><a class="btn p" href="' + esc(D.resume.file) + '" target="_blank" rel="noopener">View My Resume</a><a class="btn" href="' + esc(D.resume.file) + '" download>Download PDF</a></div></div></div></section>';
   };
-  function field(label, name, type, req, opts) {
-    var inner = type === 'select' ? '<select name="' + name + '"' + (req ? ' required' : '') + '>' + opts.map(function (o) { return '<option>' + esc(o) + '</option>'; }).join('') + '</select>'
-      : type === 'textarea' ? '<textarea name="' + name + '" rows="4"' + (req ? ' required' : '') + '></textarea>'
-      : '<input name="' + name + '" type="' + type + '"' + (req ? ' required' : '') + '>';
+
+  function field(label, name, type, req) {
+    var inner = type === 'textarea' ? '<textarea name="' + name + '" rows="5"' + (req ? ' required' : '') + '></textarea>' :
+      '<input name="' + name + '" type="' + type + '"' + (req ? ' required' : '') + '>';
     return '<label>' + label + (req ? ' *' : '') + inner + '</label>';
   }
-  S.start = function () {
-    var pk = ['Not sure'].concat(D.packages.map(function (p) { return p.n; }));
-    return '<section id="start" class="sec"><div class="w"><h2>Start a project</h2><form class="c pform" data-kind="Project requirement"><div class="fg">' +
-      field('Name', 'name', 'text', 1) + field('Company', 'company', 'text') + field('Email', 'email', 'email', 1) + field('Phone', 'phone', 'tel') + field('Industry', 'industry', 'text') +
-      field('Service category', 'category', 'select', 1, CATS) + field('Requirement title', 'title', 'text', 1) + field('Preferred package', 'package', 'select', 0, pk) +
-      field('Priority', 'priority', 'select', 0, ['Normal', 'High', 'Low']) + field('Preferred start date', 'start', 'date') + field('Expected deadline', 'deadline', 'date') + field('Estimated budget (₹)', 'budget', 'text') + '</div>' +
-      field('Detailed requirement', 'details', 'textarea', 1) + field('Expected outcome', 'outcome', 'textarea') + field('Links to files (Drive, Dropbox, etc.)', 'links', 'text') + field('Additional notes', 'notes', 'textarea') +
-      '<button class="btn p" type="submit">Submit requirement</button><p class="msg" role="status"></p></form></div></section>';
-  };
+
   S.contact = function () {
     var C = D.contact;
-    return '<section id="contact" class="sec alt"><div class="w"><h2>Contact</h2><div class="two"><form class="c pform" data-kind="Contact message">' + field('Name', 'name', 'text', 1) + field('Email', 'email', 'email', 1) + field('Company', 'company', 'text') +
-      field('Service', 'category', 'select', 0, CATS) + field('Budget', 'budget', 'text') + field('Message', 'details', 'textarea', 1) + '<button class="btn p" type="submit">Send message</button><p class="msg" role="status"></p></form>' +
+    return '<section id="contact" class="sec alt"><div class="w"><h2>Contact</h2><div class="two"><form class="c pform" data-kind="Contact message">' +
+      '<div class="fg">' + field('Name', 'name', 'text', 1) + field('Email', 'email', 'email', 1) + '</div>' +
+      field('Message', 'details', 'textarea', 1) + '<button class="btn p" type="submit">Send message</button><p class="msg" role="status"></p></form>' +
       '<div class="c"><p><b>Email</b><br><a href="mailto:' + esc(C.email) + '">' + e('contact.email', C.email) + '</a></p>' + (C.showPhone || edit ? '<p><b>Phone</b><br>' + e('contact.phone', C.phone) + '</p>' : '') +
       '<p><b>Location</b><br>' + e('contact.loc', C.loc) + '</p><p><a class="ul" href="https://' + esc(C.linkedin) + '" target="_blank" rel="noopener">LinkedIn</a> · <a class="ul" href="https://' + esc(C.github) + '" target="_blank" rel="noopener">GitHub</a></p></div></div></div></section>';
   };
 
-  // ---------- page ----------
   function render() {
     document.documentElement.style.setProperty('--ac', D.accent || '#0e7c86');
     var h = '<header class="nav"><div class="w nav-in"><a class="brand" href="#home">' + esc(D.site.name) + '</a><nav>' +
-      vis(D.nav).map(function (n, i) { return '<a href="' + esc(n.h) + '">' + e('nav.' + D.nav.indexOf(n) + '.l', n.l) + '</a>'; }).join('') + '</nav>' + cta('Start a Project') + '<button id="mb" class="mb" aria-label="Menu">☰</button></div></header>';
+      vis(D.nav).map(function (n) { return '<a href="' + esc(n.h) + '">' + e('nav.' + D.nav.indexOf(n) + '.l', n.l) + '</a>'; }).join('') + '</nav><a class="btn p" href="#contact">Connect</a><button id="mb" class="mb" aria-label="Menu">☰</button></div></header>';
     D.sections.forEach(function (sec, idx) {
       if (!S[sec.id]) return;
       if (sec.v === false && !edit) return;
@@ -141,9 +120,7 @@
       if (!html) return;
       h += edit ? '<div class="sedit ' + (sec.v === false ? 'off' : '') + '"><div class="stool"><b>' + sec.id + '</b><button data-a="su" data-i="' + idx + '">▲</button><button data-a="sd" data-i="' + idx + '">▼</button><button data-a="sv" data-i="' + idx + '">' + (sec.v === false ? 'Show' : 'Hide') + '</button></div>' + html + '</div>' : html;
     });
-    h += '<footer class="foot"><div class="w"><p>© 2026 ' + esc(D.site.name) + ' · ' + esc(D.site.tagline) + '</p>' + D.legal.map(function (l, i) {
-      return '<details><summary>' + e('legal.' + i + '.t', l.t) + '</summary><p class="mu">' + e('legal.' + i + '.x', l.x) + '</p></details>';
-    }).join('') + '</div></footer>';
+    h += '<footer class="foot"><div class="w"><p>© 2026 ' + esc(D.site.name) + ' · ' + esc(D.site.tagline) + '</p></div></footer>';
     if (isOwner) h += '<div id="eb">' + (edit
       ? ['#0e7c86', '#1f4e8c', '#4338ca'].map(function (c) { return '<button class="sq" data-a="ac" data-i="' + c + '" style="background:' + c + '" aria-label="Accent colour"></button>'; }).join('') + '<button class="btn" data-a="discard">Discard draft</button><button class="btn p" data-a="export">Download content.js</button><button class="btn" data-a="done">Done</button>'
       : '<button class="btn p" data-a="edit">✎ Edit page</button>') + '</div>';
@@ -153,35 +130,25 @@
     window.scrollTo(0, keep);
   }
 
-  // ---------- forms ----------
   function submitForm(f) {
     var fd = new FormData(f), kind = f.dataset.kind, msg = f.querySelector('.msg'), btn = f.querySelector('button[type=submit]');
     fd.append('_subject', kind + ' from ' + (fd.get('name') || 'website'));
-    fd.append('status', 'Pending');
+    fd.append('status', 'New');
     var body = ''; fd.forEach(function (v, k) { if (v && k.charAt(0) !== '_') body += k + ': ' + v + '\n'; });
     function mailFallback() {
       location.href = 'mailto:' + D.contact.email + '?subject=' + encodeURIComponent(kind + ' from ' + fd.get('name')) + '&body=' + encodeURIComponent(body);
-      msg.textContent = 'Your email app should open with the details. If it does not, email ' + D.contact.email + ' directly.';
+      msg.textContent = 'Your email app should open with the message details. If it does not, email ' + D.contact.email + ' directly.';
     }
     if (!D.form.endpoint) { mailFallback(); return; }
     btn.disabled = true; btn.textContent = 'Sending…';
     fetch(D.form.endpoint, { method: 'POST', body: fd, headers: { Accept: 'application/json' } }).then(function (r) {
       if (!r.ok) throw new Error('bad');
-      msg.textContent = 'Thank you. Your ' + kind.toLowerCase() + ' was received and is Pending review. I will reply by email.'; f.reset();
-    }).catch(function () { mailFallback(); }).then(function () { btn.disabled = false; btn.textContent = 'Submit'; });
+      msg.textContent = 'Thank you. Your message was received. I will reply by email.'; f.reset();
+    }).catch(function () { mailFallback(); }).then(function () { btn.disabled = false; btn.textContent = 'Send message'; });
   }
   document.addEventListener('submit', function (ev) { var f = ev.target.closest('.pform'); if (!f) return; ev.preventDefault(); submitForm(f); });
 
-  // ---------- clicks ----------
   document.addEventListener('click', function (ev) {
-    var st = ev.target.closest('[data-start]');
-    if (st) {                                            // prefill the project form, then let the anchor scroll
-      setTimeout(function () {
-        var f = $('#start form'); if (!f) return;
-        if (st.dataset.start) f.elements.category.value = st.dataset.start;
-        var pk = D.packages.filter(function (p) { return p.id === st.dataset.pk; })[0]; if (pk) f.elements.package.value = pk.n;
-      }, 0);
-    }
     if (ev.target.closest('#mb')) { document.body.classList.toggle('menu'); return; }
     if (ev.target.closest('nav a')) document.body.classList.remove('menu');
     var b = ev.target.closest('button'); if (!b || !b.dataset.a) return;
@@ -200,8 +167,6 @@
     if (a === 'ab') D.experience[i].b.push('New point');
     if (a === 'rp') D.projects.splice(i, 1);
     if (a === 'ap') D.projects.push({ n: 'New project', cat: 'QA', c: 'Status · Type', p: 'The problem', a: 'The approach', r: 'The result', tools: 'Tools', l: '', v: true });
-    if (a === 'rt') D.testimonials.splice(i, 1);
-    if (a === 'at') D.testimonials.push({ q: 'What the client said', n: 'Name', r: 'Role, Company' });
     saveDraft(); render();
   });
   document.addEventListener('input', function (ev) { var p = ev.target.dataset && ev.target.dataset.p; if (p && isOwner) { setPath(p, ev.target.textContent); saveDraft(); } });
@@ -212,7 +177,7 @@
     fr.readAsDataURL(f);
   });
   function exportContent() {
-    var t = '// All site content lives in this file (Phase 1 CMS). Edit by hand, or use the on-page editor (?edit) and download a copy.\nwindow.CONTENT = ' + JSON.stringify(D, null, 2) + ';\n';
+    var t = '// All site content lives in this file.\nwindow.CONTENT = ' + JSON.stringify(D, null, 2) + ';\n';
     var u = URL.createObjectURL(new Blob([t], { type: 'text/javascript' })), a = document.createElement('a');
     a.href = u; a.download = 'content.js'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(u); }, 1000);
   }
