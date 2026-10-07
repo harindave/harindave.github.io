@@ -2,7 +2,7 @@
 window.CONTENT = {
   "site": {
     "name": "Harin Dave",
-    "tagline": "QA | Data Analytics"
+    "tagline": "Quality & Data Solutions"
   },
   "nav": [
     {
@@ -16,7 +16,7 @@ window.CONTENT = {
       "v": true
     },
     {
-      "l": "Services",
+      "l": "Capabilities",
       "h": "#services",
       "v": true
     },
@@ -81,28 +81,30 @@ window.CONTENT = {
     }
   ],
   "hero": {
-    "h": "QA + Data Analytics Portfolio",
-    "t": "I combine software quality assurance, API and database testing, automation, and data analytics to test applications, validate data, investigate issues, and turn results into useful insights.",
+    "h": "Quality & Data Solutions",
+    "t": "I work across Quality Assurance, Data Analytics, and Automation — testing software, validating data, analysing information, and building practical solutions that improve quality and decision-making.",
     "badges": [
-      "Software QA",
+      "Quality Assurance",
+      "Data Analytics",
+      "Automation",
       "API Testing",
       "SQL & Data Validation",
-      "Automation Testing",
       "Selenium",
       "Cucumber",
-      "Data Analytics",
       "Excel",
       "Python"
     ],
     "photoNote": "[Add Professional Photo Here]",
-    "avail": "QA | Data Analytics | QA + Data"
+    "avail": "Quality Assurance • Data Analytics • Automation"
   },
   "about": {
-    "h": "QA + Data Analytics Professional",
-    "p": [
-      "I have 3+ years of professional QA experience testing applications, APIs and databases for software teams working in Agile.",
-      "Alongside testing I work with data: SQL validation, Excel and Python/Pandas analysis, data cleaning and reporting. I also have hands-on exposure to automation using Selenium, Cucumber, an existing Page Object Model framework and Jenkins, with AI assistance while I continue strengthening my automation skills."
-    ],
+  "h": "Quality Assurance, Data Analytics & Automation",
+
+  "p": [
+    "I am a Quality Assurance professional with 3+ years of experience testing applications, APIs and databases in Agile environments. My experience includes functional, regression, API and data validation, with a strong focus on identifying issues and ensuring reliable software and data quality.",
+
+    "Alongside QA, I work with SQL, Excel and Python/Pandas for data validation, analysis and reporting. I also have hands-on exposure to automation using Selenium, Cucumber, an existing Page Object Model framework and Jenkins. I use AI-assisted workflows where appropriate to improve productivity while continuing to strengthen my automation and data analytics capabilities."
+  ],
     "points": [
       "3+ years of professional QA experience",
       "Software, API and database testing",
@@ -114,77 +116,94 @@ window.CONTENT = {
       "Practical data analytics projects"
     ]
   },
-  "services": [
-    {
-      "id": "qa",
-      "cat": "QA",
-      "title": "QA & Software Testing",
-      "d": "Hands-on software testing across functional, regression, API, database and automation workflows.",
-      "items": [
-        "Manual Testing",
-        "Functional Testing",
-        "Regression Testing",
-        "Exploratory Testing",
-        "API Testing",
-        "Postman Testing",
-        "Database Testing",
-        "SQL Validation",
-        "Test Case Creation",
-        "Test Scenario Creation",
-        "Defect Reporting",
-        "Regression Verification",
-        "Release Testing",
-        "QA Documentation",
-        "Data Validation",
-        "Automation Testing",
-        "Selenium",
-        "Cucumber",
-        "Page Object Model",
-        "Jenkins",
-        "Git/GitHub"
-      ],
-      "v": true
-    },
-    {
-      "id": "data",
-      "cat": "Data Analytics",
-      "title": "Data Analytics",
-      "d": "Clean, analyse and explain data using practical analysis, reporting and visualization techniques.",
-      "items": [
-        "Excel Data Analysis",
-        "Data Cleaning",
-        "SQL Analysis",
-        "Exploratory Data Analysis",
-        "Python/Pandas Analysis",
-        "Data Visualization",
-        "KPI Analysis",
-        "Trend Analysis",
-        "Dashboard Analysis",
-        "Business Reporting",
-        "Data Quality Analysis",
-        "Insight Generation"
-      ],
-      "v": true
-    },
-    {
-      "id": "qadata",
-      "cat": "QA + Data",
-      "title": "QA + Data",
-      "d": "Where software quality, data validation and analytics come together.",
-      "items": [
-        "Data Quality Testing",
-        "API/Data Validation",
-        "Database Verification",
-        "SQL-Based QA Validation",
-        "Data Reconciliation",
-        "QA Metrics Analysis",
-        "Test Result Analytics",
-        "Anomaly Investigation",
-        "Data-Driven QA Reporting"
-      ],
-      "v": true
-    }
-  ],
+"services": [
+  {
+    "id": "qa",
+    "cat": "Quality Assurance",
+    "title": "QA & Software Testing",
+    "d": "3+ years of professional QA experience across functional, regression, API, database and data validation workflows.",
+    "items": [
+      "Manual Testing",
+      "Functional Testing",
+      "Regression Testing",
+      "Exploratory Testing",
+      "API Testing",
+      "Postman",
+      "Database Testing",
+      "SQL Validation",
+      "Test Case Creation",
+      "Test Scenario Creation",
+      "Defect Reporting",
+      "Regression Verification",
+      "Release Testing",
+      "QA Documentation",
+      "Data Validation"
+    ],
+    "v": true
+  },
+
+  {
+    "id": "data",
+    "cat": "Data Analytics",
+    "title": "Data Analytics",
+    "d": "Analyse, validate and communicate data using SQL, Excel and Python to identify patterns, trends and useful insights.",
+    "items": [
+      "Excel Data Analysis",
+      "Data Cleaning",
+      "SQL Analysis",
+      "Exploratory Data Analysis",
+      "Python",
+      "Pandas",
+      "Data Visualization",
+      "KPI Analysis",
+      "Trend Analysis",
+      "Dashboard Analysis",
+      "Business Reporting",
+      "Data Quality Analysis",
+      "Insight Generation"
+    ],
+    "v": true
+  },
+
+  {
+    "id": "automation",
+    "cat": "Automation",
+    "title": "Automation",
+    "d": "Hands-on automation exposure using established frameworks and tools to improve testing efficiency and coverage.",
+    "items": [
+      "Selenium",
+      "Cucumber",
+      "Page Object Model",
+      "Jenkins",
+      "Git",
+      "GitHub",
+      "Automation Script Development",
+      "Regression Automation",
+      "AI-Assisted Automation"
+    ],
+    "v": true
+  },
+
+  {
+    "id": "qadata",
+    "cat": "QA + Data",
+    "title": "QA + Data",
+    "d": "Combining software quality, data validation and analytics to investigate issues and improve data reliability.",
+    "items": [
+      "Data Quality Testing",
+      "API/Data Validation",
+      "Database Verification",
+      "SQL-Based QA Validation",
+      "Data Reconciliation",
+      "QA Metrics Analysis",
+      "Test Result Analytics",
+      "Anomaly Investigation",
+      "Data-Driven QA Reporting",
+      "Root Cause Analysis"
+    ],
+    "v": true
+  }
+],
   "projects": [
     {
       "n": "E-commerce Data Quality Project",
@@ -338,11 +357,11 @@ window.CONTENT = {
       ]
     }
   ],
-  "resume": {
-    "label": "Harin Dave – QA + Data Analytics Resume",
-    "file": "resumes/Harin_Dave_QA_Data_Analytics_Resume.pdf",
-    "line": "QA + Data Analytics professional combining software quality, automation exposure, data validation and analytical capabilities."
-  },
+"resume": {
+  "label": "Harin Dave – Quality & Data Solutions Resume",
+  "file": "resumes/Harin_Dave_QA_Data_Analytics_Resume.pdf",
+  "line": "Quality & Data Solutions professional with experience across software quality assurance, automation, data validation and data analytics."
+},
   "contact": {
     "email": "harindave11@gmail.com",
     "phone": "+91 96191 97956",

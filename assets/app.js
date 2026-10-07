@@ -39,9 +39,41 @@
       '<h1>' + e('hero.h', H.h) + '</h1><p class="lead">' + e('hero.t', H.t) + '</p>' +
       '<div class="acts"><a class="btn p" href="#resume">View My Resume</a><a class="btn" href="#projects">View My Projects</a><a class="btn" href="#contact">Connect</a></div>' +
       '<div class="chips">' + H.badges.map(function (b, i) { return '<span class="chip">' + e('hero.badges.' + i, b) + '</span>'; }).join('') + '</div></div>' +
-      '<div class="hero-v"><div class="photo">' + (D.photo ? '<img src="' + D.photo + '" alt="' + esc(D.site.name) + '">' : '<div class="ph"><b>' + esc(ini) + '</b><span>' + e('hero.photoNote', H.photoNote) + '</span></div>') + '</div>' +
-      (edit ? '<label class="chg">Change photo<input type="file" accept="image/*" id="pf" hidden></label>' : '') +
-      '<svg class="flow" viewBox="0 0 320 70" role="img" aria-label="Quality, data, analytics"><g fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="14" width="80" height="42" rx="8"/><rect x="120" y="14" width="80" height="42" rx="8"/><rect x="236" y="14" width="80" height="42" rx="8"/><path d="M84 35h36M200 35h36M112 29l8 6-8 6M228 29l8 6-8 6"/></g><g fill="currentColor" font-size="11" text-anchor="middle" font-family="monospace"><text x="44" y="40">QUALITY</text><text x="160" y="40">DATA</text><text x="276" y="40">ANALYTICS</text></g></svg></div></div></section>';
+      '<div class="hero-v"><div class="photo">' +
+'<div class="bring-card">' +
+'<div class="bring-label">WHAT I BRING</div>' +
+
+'<div class="bring-item">' +
+'<div class="bring-icon qa-icon">' +
+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L21 5"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>' +
+'</div>' +
+'<div><b>Quality Assurance</b><small>Manual • API • SQL • Regression</small></div>' +
+'</div>' +
+
+'<div class="bring-item">' +
+'<div class="bring-icon data-icon">' +
+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9"/><path d="M10 19V5"/><path d="M16 19v-7"/><path d="M22 19V3"/><path d="M2 21h20"/></svg>' +
+'</div>' +
+'<div><b>Data Analytics</b><small>SQL • Excel • Python • Pandas</small></div>' +
+'</div>' +
+
+'<div class="bring-item">' +
+'<div class="bring-icon auto-icon">' +
+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="M5.6 5.6l2.8 2.8"/><path d="M15.6 15.6l2.8 2.8"/><path d="M18.4 5.6l-2.8 2.8"/><path d="M8.4 15.6l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg>' +
+'</div>' +
+'<div><b>Automation</b><small>Selenium • Cucumber • Jenkins</small></div>' +
+'</div>' +
+
+'<div class="bring-item">' +
+'<div class="bring-icon problem-icon">' +
+'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4.3 1.7c-.9.9-1.8 1.2-1.8 2.8"/><path d="M12 17h.01"/></svg>' +
+'</div>' +
+'<div><b>Problem Solving</b><small>Root Cause • Data Quality • AI-Assisted Workflows</small></div>' +
+'</div>' +
+
+'</div>' +
+'</div>' +
+'<svg class="flow" viewBox="0 0 320 70" role="img" aria-label="Quality, data, analytics"><g fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="14" width="80" height="42" rx="8"/><rect x="120" y="14" width="80" height="42" rx="8"/><rect x="236" y="14" width="80" height="42" rx="8"/><path d="M84 35h36M200 35h36M112 29l8 6-8 6M228 29l8 6-8 6"/></g><g fill="currentColor" font-size="11" text-anchor="middle" font-family="monospace"><text x="44" y="40">QUALITY</text><text x="160" y="40">DATA</text><text x="276" y="40">ANALYTICS</text></g></svg></div></div></section>';
   };
 
   S.about = function () {
@@ -52,7 +84,7 @@
   };
 
   S.services = function () {
-    return '<section id="services" class="sec alt"><div class="w"><h2>Services</h2><p class="mu sub">Areas of expertise, tools and capabilities I currently use or am actively developing.</p><div class="cols">' +
+    return '<section id="services" class="sec alt"><div class="w"><h2>Capabilities</h2><p class="mu sub">Areas of expertise, tools and capabilities I currently use or am actively developing.</p><div class="cols">' +
       vis(D.services).map(function (v) {
         var i = D.services.indexOf(v);
         return '<article class="c svc"><div class="tg">' + e('services.' + i + '.cat', v.cat) + '</div><h3>' + e('services.' + i + '.title', v.title) + '</h3><p class="mu">' + e('services.' + i + '.d', v.d) + '</p>' +

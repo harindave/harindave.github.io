@@ -1,39 +1,98 @@
-# Harin Dave — QA + Data Analytics Portfolio
+# Harin Dave — Quality & Data Solutions
 
-Personal portfolio website for Harin Dave, focused on **Quality Assurance, automation exposure, Data Analytics, Data QA, and QA + Data roles**.
+Professional portfolio for **Harin Dave**, showcasing capabilities across **Quality Assurance, Data Analytics, Automation, Data Quality, and QA + Data solutions**.
 
-The site is a static HTML/CSS/JavaScript portfolio with no build step. It is published through GitHub Pages with GitHub Actions.
+The portfolio is designed to provide a clear view of professional experience, technical skills, projects, and the type of problems I can solve across quality and data-focused roles.
 
-## What the portfolio covers
+## Professional Focus
 
-- Professional QA experience and measurable testing outcomes
-- Manual, functional, regression, API and database testing
-- Automation exposure with Selenium, Cucumber, an existing Page Object Model framework and Jenkins
-- SQL and data validation
-- Data Analytics projects using Excel, SQL and Python/Pandas
-- QA + Data projects focused on data quality and validation
-- Completed IIT Delhi Data Analysis certification program and Microsoft certificate
-- Resume, GitHub and LinkedIn links
+### Quality Assurance
 
-## Website sections
+* Manual and functional testing
+* Regression and integration testing
+* API testing with Postman
+* SQL and database validation
+* Data verification
+* Defect identification and tracking
+* Jira-based issue management
+
+### Data Analytics
+
+* SQL
+* Microsoft Excel
+* Python
+* Pandas
+* Data cleaning and validation
+* Exploratory data analysis
+* Data quality analysis
+* Reporting and insights
+
+### Automation
+
+* Selenium
+* Cucumber
+* Page Object Model
+* Jenkins
+* Git and GitHub
+* AI-assisted automation development
+
+### QA + Data
+
+Combining software testing and data analysis to:
+
+* Validate application data
+* Identify data quality issues
+* Investigate anomalies
+* Perform root-cause analysis
+* Connect application behaviour with underlying data
+* Turn testing and validation results into useful insights
+
+## Portfolio Sections
 
 **Home · About · Services · Experience · Skills · Projects · Resume · Contact**
 
-The Services section is intentionally presented as **areas of expertise/capabilities only**. It does not publish service charges, packages, budgets or pricing.
+The portfolio separates QA, Data Analytics, and Automation while also showing how these areas can work together.
 
-## Files
+## Projects
 
-- `index.html` — page entry point and SEO metadata
-- `content.js` — all editable site content
-- `assets/app.js` — page rendering, filtering, contact form handling and private browser editor
-- `assets/style.css` — site styling and responsive layout
-- `resumes/Harin_Dave_QA_Data_Analytics_Resume.pdf` — public portfolio resume
-- `.github/workflows/pages.yml` — GitHub Pages deployment workflow
-- `.nojekyll` — keeps the site compatible with static GitHub Pages deployment
+The Projects section contains practical examples covering areas such as:
 
-## Run locally
+* Software Quality Assurance
+* API and database testing
+* Data validation
+* Data Analytics
+* QA + Data
+* Automation
 
-Because the site is static, you can preview it with a simple local server. From the project folder in PowerShell:
+Each project is presented around the problem, approach, tools used, and outcome.
+
+Project repositories will be added as individual projects are completed and published.
+
+## Resume
+
+The latest portfolio resume is available here:
+
+`resumes/Harin_Dave_QA_Data_Analytics_Resume.pdf`
+
+The resume covers my professional experience, technical skills, QA background, automation exposure, and developing Data Analytics capabilities.
+
+## Technology
+
+This portfolio is built using:
+
+* HTML
+* CSS
+* JavaScript
+* Git
+* GitHub
+* GitHub Actions
+* GitHub Pages
+
+No build framework or package installation is required.
+
+## Run Locally
+
+From the project folder, start a simple local server:
 
 ```powershell
 python -m http.server 8000
@@ -43,54 +102,59 @@ Then open:
 
 `http://localhost:8000`
 
-You can also use the VS Code Live Server extension.
+The portfolio can also be previewed using the VS Code Live Server extension.
 
-## Publish with GitHub Pages
+## Deployment
 
-The repository should remain **public** for this portfolio. Push the project to the `main` branch, then set **Settings → Pages → Build and deployment → Source → GitHub Actions**. The existing workflow deploys the root of the repository.
+The portfolio is deployed using **GitHub Pages** through GitHub Actions.
 
-After a successful push, open the repository's **Actions** tab and confirm the **Deploy site** workflow completes successfully. The published site is:
+The `main` branch is used for the published portfolio.
+
+The live website is:
 
 `https://harindave.github.io/`
 
-## Updating the portfolio
-
-### Simple method
-
-Edit `content.js`, save the file, commit the change and push to `main`. GitHub Actions will publish the update.
-
-### Optional browser editor
-
-Open the live site with `?edit` appended to the URL. The private editor lets the owner preview content changes in that browser. To publish those edits, use **Download content.js**, replace the repository's `content.js`, commit and push it.
-
-Use `?lock` to clear the private edit state from that browser.
-
-## Adding a new project
-
-Add a new object to the `projects` array in `content.js` using the same fields as the existing projects:
+## Repository Structure
 
 ```text
-n  = project name
-cat = QA / Data Analytics / QA + Data
-c   = status and type
-p   = problem
-a   = approach
-r   = result
-tools = tools used
-l   = GitHub project URL without https://
-v   = true
+.
+├── .github/
+│   └── workflows/
+│       └── pages.yml
+├── assets/
+│   ├── app.js
+│   └── style.css
+├── resumes/
+│   └── Harin_Dave_QA_Data_Analytics_Resume.pdf
+├── .nojekyll
+├── content.js
+├── index.html
+└── README.md
 ```
 
-When the GitHub repository for a project is ready, add its URL to `l` and push the change.
+### Main files
 
-## Contact form
+* `index.html` — portfolio entry point and SEO metadata
+* `content.js` — portfolio content and project information
+* `assets/app.js` — page rendering and interactive functionality
+* `assets/style.css` — visual design and responsive layout
+* `resumes/` — public portfolio resume
+* `.github/workflows/pages.yml` — GitHub Pages deployment workflow
 
-The portfolio contact form currently falls back to the visitor's email app. For direct form delivery, add a Formspree or Web3Forms endpoint to `form.endpoint` in `content.js`.
+## Public Repository Safety
 
-## Public repository safety
+The repository does not contain employer-confidential information, private client data, credentials, API keys, or other sensitive material.
 
-Do not commit employer-confidential information, private client data, credentials, API keys, internal screenshots or any other non-public material. Professional project descriptions on the portfolio should stay at a high level where client details are confidential.
+Professional project descriptions are kept at an appropriate level where client or employer information is confidential.
 
-## Future improvements
+## Current Direction
 
-Possible future additions include dedicated project repositories, stronger automation projects, richer Data Analytics case studies, a professional photo, and a custom domain after the portfolio content is finalized.
+My professional foundation is in **Quality Assurance**, with continued development in **Data Analytics and Automation**.
+
+The portfolio reflects this broader direction by demonstrating how software quality, data validation, analytics, automation, and problem solving can complement each other.
+
+---
+
+**Harin Dave**
+Quality Assurance • Data Analytics • Automation
+Quality & Data Solutions

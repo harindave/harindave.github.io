@@ -21,7 +21,35 @@ h1{font-size:clamp(30px,5.2vw,52px);line-height:1.1;margin:0 0 16px;letter-spaci
 .sec{padding:64px 0}.alt{background:var(--alt)}h2{font:700 13px 'Space Grotesk';letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin:0 0 20px}.sub{margin:-8px 0 22px}.sub2{margin:32px 0 12px;font-size:20px}
 .two{display:grid;grid-template-columns:1.4fr 1fr;gap:32px}@media(max-width:800px){.two{grid-template-columns:1fr}}.big{font-size:clamp(22px,3.4vw,30px);line-height:1.25;margin:0 0 14px}
 .ticks{list-style:none;padding:0;margin:0}.ticks li{padding:10px 0 10px 28px;border-bottom:1px solid var(--bd);position:relative}.ticks li:before{content:"✓";position:absolute;left:0;color:var(--ac);font-weight:700}
-.c{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px;margin-bottom:14px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.grid .c{margin:0}.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px}.cols .c{margin:0}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px;margin-bottom:14px}.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.grid .c {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}.grid .c{margin:0}.cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cols .c {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .cols {
+    grid-template-columns: 1fr;
+  }
+}
 .c h3{margin:0 0 6px;font-size:20px}.tg{font-size:13px;color:var(--ac);font-weight:600;letter-spacing:.04em}.svc .chips{margin:12px 0}.svc{height:100%}
 table{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:14px}caption{text-align:left;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);padding-bottom:6px}td{padding:7px 0;border-top:1px solid var(--bd)}td:last-child{text-align:right;font-weight:600;white-space:nowrap}
 .case dl{margin:10px 0 14px}dt{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:10px}dd{margin:2px 0 0}
@@ -33,3 +61,125 @@ table{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:14px}capt
 button.x{background:none;border:0;color:#dc2626;cursor:pointer}.addb{font:inherit;font-size:13px;padding:6px 12px;border-radius:8px;border:1px solid var(--ac);background:none;color:var(--ac);cursor:pointer;margin-top:8px}
 #eb{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;z-index:30}#eb .btn{box-shadow:0 2px 10px #0004}.sq{width:28px;height:28px;border-radius:50%;border:2px solid #fff;cursor:pointer}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Hero - What I Bring */
+.bring-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 28px;
+  border: 1px solid #ffffff22;
+  border-radius: 18px;
+  background: #ffffff08;
+}
+
+.bring-label {
+  margin-bottom: 22px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #9fb0c8;
+}
+
+.bring-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid #ffffff18;
+}
+
+.bring-item:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.bring-icon {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #0e7c8622;
+  color: #7fd8e0;
+}
+
+.bring-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.bring-item b {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.bring-item small {
+  display: block;
+  color: #9fb0c8;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.bring-card + .flow {
+  margin-top: 22px;
+}
+
+@media (max-width: 760px) {
+  .bring-card {
+    padding: 22px;
+  }
+
+  .bring-item {
+    gap: 12px;
+  }
+
+  .bring-icon {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .bring-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+.hero .photo {
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  display: block;
+  max-width: none;
+  margin: 0;
+}
+
+.hero .photo .bring-card {
+  width: 100%;
+}
+/* Services - force 2x2 layout */
+.grid:has(.svc) {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+.grid:has(.svc) .svc {
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 700px) {
+  .grid:has(.svc) {
+    grid-template-columns: 1fr !important;
+  }
+}
